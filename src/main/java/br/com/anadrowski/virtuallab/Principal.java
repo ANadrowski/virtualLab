@@ -38,6 +38,7 @@ package br.com.anadrowski.virtuallab;
  */
 public class Principal {
   public static void main(String args[]) {
+    System.out.println("Starting application.");
     
   }
 }
