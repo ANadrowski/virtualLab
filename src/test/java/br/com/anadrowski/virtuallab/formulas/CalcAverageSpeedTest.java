@@ -40,11 +40,14 @@ import static org.junit.Assert.*;
  * @since 0.0.1
  */
 public class CalcAverageSpeedTest {
-  
-  @Test
-  public void shouldCalcAverageSpeed() {
-    Formula averageSpeed = new CalcAverageSpeed(30, 10);
-    System.out.println("Average Speed: " + averageSpeed.calc());
-    assertEquals(3, averageSpeed.calc(), 0.0);
-  }
+
+    /**
+     * Calculates the average speed.
+     */
+    @Test
+    public void shouldCalcAverageSpeed() {
+        Formula averageSpeed = new CalcAverageSpeed(30, 10);
+        System.out.println("Average Speed: " + averageSpeed.calc());
+        assertEquals(3, averageSpeed.calc(), 0.0);
+    }
 }

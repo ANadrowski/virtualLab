@@ -44,6 +44,8 @@ public class CalcAverageSpeed implements Formula {
 
   /**
    * Constructor with parameters.
+     * @param distance
+     * @param time
    */
   public CalcAverageSpeed(final double distance, final double time) {
     this.distance = distance;

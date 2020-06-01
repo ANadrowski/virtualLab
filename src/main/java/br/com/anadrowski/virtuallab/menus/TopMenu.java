@@ -29,44 +29,71 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab;
+package br.com.anadrowski.virtuallab.menus;
 
-import br.com.anadrowski.virtuallab.menus.TopMenu;
-import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.UIManager;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
+ * Top menu.
  *
- * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
+ * @author Aislan Nadrowski(aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public final class MainWindow extends JFrame {
+public class TopMenu extends JMenuBar {
 
-    public MainWindow() {
-        lookAndFeelLoader();
-        menu();
+    JMenu fileMenu;
+    JMenu submenu;
+    JMenuItem menuItem;
+
+    public TopMenu() {
         init();
     }
 
     public void init() {
-        this.setVisible(true);
-        this.setTitle("VirtualLab");
-        this.setSize(new Dimension(800, 600));
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
+        fileMenu = new JMenu("File");
+        add(fileMenu);
 
-    public void menu() {
-        setJMenuBar(new TopMenu());
-    }
+        //close JMenuItems
+        menuItem = new JMenuItem("Close");
+        fileMenu.add(menuItem);
 
-    private static void lookAndFeelLoader() {
-        try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+        //Submenu
+//        submenu = new JMenu("Submenu");
+//
+//        menuItem = new JMenuItem("An item in the submenu");
+//        submenu.add(menuItem);
+//
+//        menuItem = new JMenuItem("Another item");
+//        submenu.add(menuItem);
+//        fileMenu.add(submenu);
 
+        //Converters menu.
+        fileMenu = new JMenu("Converters");
+        this.add(fileMenu);
+
+        //Mechanics menu.
+        fileMenu = new JMenu("Mechanics");
+        this.add(fileMenu);
+
+        //Wave menu.
+        fileMenu = new JMenu("Wave");
+        this.add(fileMenu);
+
+        //Thermology menu.
+        fileMenu = new JMenu("Thermology");
+        this.add(fileMenu);
+
+        //Electrical menu.
+        fileMenu = new JMenu("Electrical");
+        this.add(fileMenu);
+
+        //Help menu.
+        fileMenu = new JMenu("Help");
+        this.add(fileMenu);
+
+        menuItem = new JMenuItem("About");
+        fileMenu.add(menuItem);
+    }
 }

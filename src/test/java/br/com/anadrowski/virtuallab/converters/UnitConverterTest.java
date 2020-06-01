@@ -29,44 +29,31 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab;
+package br.com.anadrowski.virtuallab.converters;
 
-import br.com.anadrowski.virtuallab.menus.TopMenu;
-import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.UIManager;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public final class MainWindow extends JFrame {
+public class UnitConverterTest {
 
-    public MainWindow() {
-        lookAndFeelLoader();
-        menu();
-        init();
+    /**
+     * Converts m/s to km/h.
+     */
+    @Test
+    public void shouldConvertMStoKmH() {
+        assertEquals(36, new UnitConverter().convertsMStoKmH(10), 0.0);
     }
 
-    public void init() {
-        this.setVisible(true);
-        this.setTitle("VirtualLab");
-        this.setSize(new Dimension(800, 600));
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    /**
+     * Converts km/h to m/s.
+     */
+    @Test
+    public void shouldConvertKmHtoMS() {
+        assertEquals(10, new UnitConverter().convertsKmHtoMS(36), 0.0);
     }
-
-    public void menu() {
-        setJMenuBar(new TopMenu());
-    }
-
-    private static void lookAndFeelLoader() {
-        try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
 }

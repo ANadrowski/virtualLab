@@ -33,11 +33,17 @@ package br.com.anadrowski.virtuallab.formulas;
 
 /**
  * Represents a formula.
+ *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
 public interface Formula {
 
-  double calc();
-  
+    /**
+     * Calculates the formula.
+     *
+     * @return result
+     */
+    double calc();
+
 }
