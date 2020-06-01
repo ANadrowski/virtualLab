@@ -29,43 +29,29 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab;
+package br.com.anadrowski.virtuallab.windows;
 
-import br.com.anadrowski.virtuallab.menus.TopMenu;
 import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.UIManager;
+import java.awt.Point;
+import java.awt.Toolkit;
+import javax.swing.JDialog;
 
 /**
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public final class MainWindow extends JFrame {
+public final class AboutWindow extends JDialog {
 
-    public MainWindow() {
-        lookAndFeelLoader();
-        menu();
+    public AboutWindow() {
         init();
     }
 
     public void init() {
+        this.setTitle("About");
+        this.setSize(new Dimension(400, 300));
+        this.setLocationRelativeTo(this);
+        this.setResizable(false);
         this.setVisible(true);
-        this.setTitle("VirtualLab");
-        this.setSize(new Dimension(800, 600));
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public void menu() {
-        setJMenuBar(new TopMenu());
-    }
-
-    private static void lookAndFeelLoader() {
-        try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
     }
 }

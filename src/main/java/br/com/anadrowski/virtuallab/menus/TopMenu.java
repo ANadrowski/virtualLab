@@ -31,9 +31,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package br.com.anadrowski.virtuallab.menus;
 
+import br.com.anadrowski.virtuallab.windows.AboutWindow;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 /**
  * Top menu.
@@ -57,6 +59,12 @@ public class TopMenu extends JMenuBar {
 
         //close JMenuItems
         menuItem = new JMenuItem("Close");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeMenuItemActionPerformed(evt);
+            }
+        });
+
         fileMenu.add(menuItem);
 
         //Submenu
@@ -94,6 +102,24 @@ public class TopMenu extends JMenuBar {
         this.add(fileMenu);
 
         menuItem = new JMenuItem("About");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(menuItem);
     }
+
+    private void closeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Do you really want to close it?", "Close the software", JOptionPane.YES_OPTION);
+
+        if (dialogResult == 0) {
+            System.exit(0); 
+        } 
+    }
+    
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        AboutWindow about = new AboutWindow();
+    }
+
 }
