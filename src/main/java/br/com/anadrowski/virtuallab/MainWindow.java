@@ -31,13 +31,25 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package br.com.anadrowski.virtuallab;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class Principal {
-  public static void main(String args[]) {
-    MainWindow window = new MainWindow();
+public final class MainWindow extends JFrame {
+  public MainWindow() {
+    init();
+  }
+  
+  public void init() {
+    this.setVisible(true); 
+    this.setTitle("VirtualLab");
+    this.setSize(new Dimension(800,600));
+    this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
 }
