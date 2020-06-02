@@ -29,26 +29,39 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas;
+package br.com.anadrowski.virtuallab.formulas.electrical;
 
-import br.com.anadrowski.virtuallab.formulas.mechanics.CalcAverageSpeed;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import br.com.anadrowski.virtuallab.formulas.Formula;
 
 /**
+ * Calculates the electric current in a DC circuit. (Ohm's law).
  *
- * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
+ * @author Aislan Nadrowski(aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcAverageSpeedTest {
+public class CalcElectricCurrent implements Formula {
+
+    private final double voltage;
+    private final double resistance;
 
     /**
-     * Calculates the average speed.
+     * Constructor with parameters.
+     *
+     * @param voltage
+     * @param resistance
      */
-    @Test
-    public void shouldCalcAverageSpeed() {
-        Formula averageSpeed = new CalcAverageSpeed(30, 10);
-        System.out.println("Average Speed: " + averageSpeed.calc());
-        assertEquals(3, averageSpeed.calc(), 0.0);
+    public CalcElectricCurrent(final double voltage, final double resistance) {
+        this.voltage = voltage;
+        this.resistance = resistance;
+    }
+
+    /**
+     * Calculates the electric current.
+     *
+     * @return Electric current.
+     */
+    @Override
+    public double calc() {
+        return this.voltage / this.resistance;
     }
 }

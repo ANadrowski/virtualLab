@@ -29,7 +29,9 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas;
+package br.com.anadrowski.virtuallab.formulas.mechanics;
+
+import br.com.anadrowski.virtuallab.formulas.Formula;
 
 /**
  * Calculates the average speed.
@@ -45,8 +47,8 @@ public class CalcAverageSpeed implements Formula {
     /**
      * Constructor with parameters.
      *
-     * @param distance
-     * @param time
+     * @param distance in meters
+     * @param time in seconds
      */
     public CalcAverageSpeed(final double distance, final double time) {
         this.distance = distance;
@@ -60,6 +62,6 @@ public class CalcAverageSpeed implements Formula {
      */
     @Override
     public double calc() {
-        return distance / time;
+        return this.distance / this.time;
     }
 }

@@ -133,7 +133,6 @@ public final class MainWindow extends JFrame {
         fileMenu.add(menuItem);
 
         this.setJMenuBar(jMenuBar);
-
     }
 
     private static void lookAndFeelLoader() {

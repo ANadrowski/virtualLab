@@ -31,7 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package br.com.anadrowski.virtuallab.formulas;
 
-import br.com.anadrowski.virtuallab.formulas.mechanics.CalcAverageSpeed;
+import br.com.anadrowski.virtuallab.formulas.electrical.CalcElectricCurrent;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -40,15 +40,15 @@ import static org.junit.Assert.*;
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcAverageSpeedTest {
-
+public class CalcElectricCurrentTest {
+    
     /**
-     * Calculates the average speed.
+     * Calculates the electric current.
      */
     @Test
-    public void shouldCalcAverageSpeed() {
-        Formula averageSpeed = new CalcAverageSpeed(30, 10);
-        System.out.println("Average Speed: " + averageSpeed.calc());
-        assertEquals(3, averageSpeed.calc(), 0.0);
+    public void shouldCalcElectricCurrent() {
+        Formula electricCurrent = new CalcElectricCurrent(24, 10);
+        System.out.println("Electric current: " + electricCurrent.calc());
+        assertEquals(2.4, electricCurrent.calc(), 0.0);
     }
 }
