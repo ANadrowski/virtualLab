@@ -31,9 +31,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package br.com.anadrowski.virtuallab;
 
-import br.com.anadrowski.virtuallab.menus.TopMenu;
+import br.com.anadrowski.virtuallab.windows.AboutWindow;
+import br.com.anadrowski.virtuallab.windows.AverageSpeed;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /**
@@ -58,7 +63,77 @@ public final class MainWindow extends JFrame {
     }
 
     public void menu() {
-        setJMenuBar(new TopMenu());
+        JMenuBar jMenuBar = new JMenuBar();
+        JMenu fileMenu;
+        JMenu submenu;
+        JMenuItem menuItem;
+
+        fileMenu = new JMenu("File");
+        jMenuBar.add(fileMenu);
+
+        //close JMenuItems
+        menuItem = new JMenuItem("Close");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeMenuItemActionPerformed(evt);
+            }
+        });
+
+        fileMenu.add(menuItem);
+
+        //Converters menu.
+        fileMenu = new JMenu("Converters");
+        jMenuBar.add(fileMenu);
+
+        //Mechanics menu.
+        fileMenu = new JMenu("Mechanics");
+        jMenuBar.add(fileMenu);
+
+        //Dynamics JMenuItems
+        menuItem = new JMenuItem("Dynamics");
+        fileMenu.add(menuItem);
+
+        //Kinematics JMenuItems
+        submenu = new JMenu("Kinematics");
+
+        menuItem = new JMenuItem("Average Speed");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                averageSpeedMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
+
+        menuItem = new JMenuItem("Instantaneous Speed");
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
+
+        //Wave menu.
+        fileMenu = new JMenu("Wave");
+        jMenuBar.add(fileMenu);
+
+        //Thermology menu.
+        fileMenu = new JMenu("Thermology");
+        jMenuBar.add(fileMenu);
+
+        //Electrical menu.
+        fileMenu = new JMenu("Electrical");
+        jMenuBar.add(fileMenu);
+
+        //Help menu.
+        fileMenu = new JMenu("Help");
+        jMenuBar.add(fileMenu);
+
+        menuItem = new JMenuItem("About");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(menuItem);
+
+        this.setJMenuBar(jMenuBar);
+
     }
 
     private static void lookAndFeelLoader() {
@@ -67,5 +142,22 @@ public final class MainWindow extends JFrame {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    private void closeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Do you really want to close it?", "Close the software", JOptionPane.YES_OPTION);
+
+        if (dialogResult == 0) {
+            System.exit(0);
+        }
+    }
+
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        AboutWindow about = new AboutWindow();
+    }
+
+    private void averageSpeedMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new AverageSpeed());
+        this.revalidate();
     }
 }

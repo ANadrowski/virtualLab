@@ -31,25 +31,18 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package br.com.anadrowski.virtuallab.windows;
 
+import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.JDialog;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public final class AboutWindow extends JDialog {
-
-    public AboutWindow() {
-        init();
-    }
-
-    public void init() {
-        this.setTitle("About");
-        this.setSize(new Dimension(400, 300));
-        this.setLocationRelativeTo(this);
-        this.setResizable(false);
-        this.setVisible(true);
+public class AverageSpeed extends JPanel {
+    public AverageSpeed() {
+        this.setPreferredSize(new Dimension(300,300));
+        this.setBackground(Color.WHITE);
     }
 }

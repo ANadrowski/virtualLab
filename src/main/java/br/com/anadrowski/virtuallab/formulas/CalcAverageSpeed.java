@@ -39,26 +39,27 @@ package br.com.anadrowski.virtuallab.formulas;
  */
 public class CalcAverageSpeed implements Formula {
 
-  private final double distance;
-  private final double time;
+    private final double distance;
+    private final double time;
 
-  /**
-   * Constructor with parameters.
+    /**
+     * Constructor with parameters.
+     *
      * @param distance
      * @param time
-   */
-  public CalcAverageSpeed(final double distance, final double time) {
-    this.distance = distance;
-    this.time = time;
-  }
+     */
+    public CalcAverageSpeed(final double distance, final double time) {
+        this.distance = distance;
+        this.time = time;
+    }
 
-  /**
-   * Calculates the average speed.
-   *
-   * @return Average speed.
-   */
-  @Override
-  public double calc() {
-    return distance / time;
-  }
+    /**
+     * Calculates the average speed.
+     *
+     * @return Average speed.
+     */
+    @Override
+    public double calc() {
+        return distance / time;
+    }
 }
