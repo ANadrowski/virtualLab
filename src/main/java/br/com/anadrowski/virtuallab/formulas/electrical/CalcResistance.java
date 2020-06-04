@@ -34,12 +34,12 @@ package br.com.anadrowski.virtuallab.formulas.electrical;
 import br.com.anadrowski.virtuallab.formulas.Formula;
 
 /**
- * Calculates the resistence in a DC circuit. (Ohm's law).
+ * Calculates the resistance in a DC circuit. (Ohm's law).
  *
  * @author Aislan Nadrowski(aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcResistence implements Formula {
+public class CalcResistance implements Formula {
 
     private final double voltage;
     private final double current;
@@ -50,15 +50,15 @@ public class CalcResistence implements Formula {
      * @param voltage
      * @param current
      */
-    public CalcResistence(final double voltage, final double current) {
+    public CalcResistance(final double voltage, final double current) {
         this.voltage = voltage;
         this.current = current;
     }
 
     /**
-     * Calculates the resistence.
+     * Calculates the resistance.
      *
-     * @return Resistence.
+     * @return Resistance.
      */
     @Override
     public double calc() {

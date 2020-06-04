@@ -40,15 +40,15 @@ import static org.junit.Assert.*;
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcResistenceTest {
+public class CalcResistanceTest {
     
     /**
-     * Calculates the resistence.
+     * Calculates the resistance.
      */
     @Test
     public void shouldCalcElectricCurrent() {
-        Formula resistence = new CalcResistence(220, 10);
-        System.out.println("Resistence: " + resistence.calc());
-        assertEquals(22, resistence.calc(), 0.0);
+        Formula resistance = new CalcResistance(220, 10);
+        System.out.println("Resistance: " + resistance.calc());
+        assertEquals(22, resistance.calc(), 0.0);
     }
 }
