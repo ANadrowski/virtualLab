@@ -29,9 +29,9 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas;
+package br.com.anadrowski.virtuallab.formulas.electrical;
 
-import br.com.anadrowski.virtuallab.formulas.electrical.CalcElectricCurrent;
+import br.com.anadrowski.virtuallab.formulas.Formula;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
