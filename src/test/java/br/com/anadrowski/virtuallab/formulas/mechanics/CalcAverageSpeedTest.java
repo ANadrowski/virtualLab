@@ -32,7 +32,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package br.com.anadrowski.virtuallab.formulas.mechanics;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
-import br.com.anadrowski.virtuallab.formulas.mechanics.CalcAverageSpeed;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -42,7 +41,7 @@ import static org.junit.Assert.*;
  * @since 0.0.1
  */
 public class CalcAverageSpeedTest {
-
+    
     /**
      * Calculates the average speed.
      */

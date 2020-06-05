@@ -29,39 +29,26 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas.electrical;
+package br.com.anadrowski.virtuallab.formulas.mechanics;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
- * Calculates the voltage in a DC circuit. (Ohm's law).
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcVoltage implements Formula {
-
-    private final double resistance;
-    private final double current;
-
+public class CalcAverageAccelerationTest {
+    
     /**
-     * Constructor with parameters.
-     *
-     * @param resistance
-     * @param current
+     * Calculates the average acceleration.
      */
-    public CalcVoltage(final double resistance, final double current) {
-        this.resistance = resistance;
-        this.current = current;
-    }
-
-    /**
-     * Calculates the voltage.
-     *
-     * @return Voltage.
-     */
-    @Override
-    public double calc() {
-        return this.resistance * this.current;
-    }
+    @Test
+    public void shouldCalcAverageAcceleration() {
+        Formula averageAcceleration = new CalcAverageAcceleration(60, 0, 10, 0);
+        System.out.println("Average Acceleration: " + averageAcceleration.calc());
+        assertEquals(6, averageAcceleration.calc(), 0.0);
+    }  
 }

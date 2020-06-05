@@ -29,39 +29,56 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas.electrical;
+package br.com.anadrowski.virtuallab.formulas.mechanics;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
 
 /**
- * Calculates the voltage in a DC circuit. (Ohm's law).
+ * Calculates the average acceleration.
+ *
+ * Aavg = vf - vi / tf - ti 
+ * 
+ * vf: final velocity 
+ * vi: initial velocity 
+ * tf: final time 
+ * ti: initial time
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcVoltage implements Formula {
+public class CalcAverageAcceleration implements Formula {
 
-    private final double resistance;
-    private final double current;
+    private final double finalVelocity;
+    private final double initialVelocity;
+    private final double finalTime;
+    private final double initialTime;
 
     /**
      * Constructor with parameters.
      *
-     * @param resistance
-     * @param current
+     * @param finalVelocity
+     * @param initialVelocity
+     * @param finalTime
+     * @param initialTime
      */
-    public CalcVoltage(final double resistance, final double current) {
-        this.resistance = resistance;
-        this.current = current;
+    public CalcAverageAcceleration(final double finalVelocity,
+        final double initialVelocity,
+        final double finalTime,
+        final double initialTime) {
+
+        this.finalVelocity = finalVelocity;
+        this.initialVelocity = initialVelocity;
+        this.finalTime = finalTime;
+        this.initialTime = initialTime;
     }
 
     /**
-     * Calculates the voltage.
+     * Calculates the average acceleration.
      *
-     * @return Voltage.
+     * @return Average acceleration (m/s2).
      */
     @Override
     public double calc() {
-        return this.resistance * this.current;
+        return (this.finalVelocity - this.initialVelocity) / (this.finalTime - this.initialTime);
     }
 }

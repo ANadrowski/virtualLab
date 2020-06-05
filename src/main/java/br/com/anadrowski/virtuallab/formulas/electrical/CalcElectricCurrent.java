@@ -36,7 +36,7 @@ import br.com.anadrowski.virtuallab.formulas.Formula;
 /**
  * Calculates the electric current in a DC circuit. (Ohm's law).
  *
- * @author Aislan Nadrowski(aislan.nadrowski@gmail.com)
+ * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
 public class CalcElectricCurrent implements Formula {
