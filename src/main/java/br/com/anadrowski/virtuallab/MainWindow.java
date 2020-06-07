@@ -107,6 +107,14 @@ public final class MainWindow extends JFrame {
         menuItem = new JMenuItem("Instantaneous Speed");
         submenu.add(menuItem);
         fileMenu.add(submenu);
+        
+        menuItem = new JMenuItem("Average Acceleration");
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
+        
+        menuItem = new JMenuItem("Force");
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
 
         //Wave menu.
         fileMenu = new JMenu("Wave");
