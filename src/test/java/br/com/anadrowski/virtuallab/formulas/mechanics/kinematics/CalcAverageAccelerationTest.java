@@ -29,56 +29,27 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas.mechanics;
+package br.com.anadrowski.virtuallab.formulas.mechanics.kinematics;
 
+import br.com.anadrowski.virtuallab.formulas.mechanics.kinematics.CalcAverageAcceleration;
 import br.com.anadrowski.virtuallab.formulas.Formula;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
- * Calculates the average acceleration.
- *
- * Aavg = vf - vi / tf - ti 
- * 
- * vf: final velocity 
- * vi: initial velocity 
- * tf: final time 
- * ti: initial time
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcAverageAcceleration implements Formula {
-
-    private final double finalVelocity;
-    private final double initialVelocity;
-    private final double finalTime;
-    private final double initialTime;
-
-    /**
-     * Constructor with parameters.
-     *
-     * @param finalVelocity
-     * @param initialVelocity
-     * @param finalTime
-     * @param initialTime
-     */
-    public CalcAverageAcceleration(final double finalVelocity,
-        final double initialVelocity,
-        final double finalTime,
-        final double initialTime) {
-
-        this.finalVelocity = finalVelocity;
-        this.initialVelocity = initialVelocity;
-        this.finalTime = finalTime;
-        this.initialTime = initialTime;
-    }
-
+public class CalcAverageAccelerationTest {
+    
     /**
      * Calculates the average acceleration.
-     *
-     * @return Average acceleration (m/s2).
      */
-    @Override
-    public double calc() {
-        return (this.finalVelocity - this.initialVelocity) / (this.finalTime - this.initialTime);
-    }
+    @Test
+    public void shouldCalcAverageAcceleration() {
+        Formula averageAcceleration = new CalcAverageAcceleration(60, 0, 10, 0);
+        System.out.println("Average Acceleration: " + averageAcceleration.calc());
+        assertEquals(6, averageAcceleration.calc(), 0.0);
+    }  
 }

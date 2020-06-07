@@ -89,10 +89,6 @@ public final class MainWindow extends JFrame {
         fileMenu = new JMenu("Mechanics");
         jMenuBar.add(fileMenu);
 
-        //Dynamics JMenuItems
-        menuItem = new JMenuItem("Dynamics");
-        fileMenu.add(menuItem);
-
         //Kinematics JMenuItems
         submenu = new JMenu("Kinematics");
 
@@ -112,6 +108,8 @@ public final class MainWindow extends JFrame {
         submenu.add(menuItem);
         fileMenu.add(submenu);
         
+        //Dynamics JMenuItems
+        submenu = new JMenu("Dynamics");
         menuItem = new JMenuItem("Force");
         submenu.add(menuItem);
         fileMenu.add(submenu);
@@ -127,6 +125,24 @@ public final class MainWindow extends JFrame {
         //Electrical menu.
         fileMenu = new JMenu("Electrical");
         jMenuBar.add(fileMenu);
+        
+        //Electrostatic JMenuItems
+        submenu = new JMenu("Electrostatic");
+        menuItem = new JMenuItem("--");
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
+        
+        //Electrodynamics JMenuItems
+        submenu = new JMenu("Electrodynamics");
+        menuItem = new JMenuItem("--");
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
+        
+        //Electromagnetism JMenuItems
+        submenu = new JMenu("Electromagnetism");
+        menuItem = new JMenuItem("--");
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
 
         //Help menu.
         fileMenu = new JMenu("Help");

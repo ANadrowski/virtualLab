@@ -29,26 +29,39 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas.mechanics;
+package br.com.anadrowski.virtuallab.formulas.mechanics.kinematics;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
+ * Calculates the average speed.
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcAverageAccelerationTest {
-    
+public class CalcAverageSpeed implements Formula {
+
+    private final double distance;
+    private final double time;
+
     /**
-     * Calculates the average acceleration.
+     * Constructor with parameters.
+     *
+     * @param distance in meters
+     * @param time in seconds
      */
-    @Test
-    public void shouldCalcAverageAcceleration() {
-        Formula averageAcceleration = new CalcAverageAcceleration(60, 0, 10, 0);
-        System.out.println("Average Acceleration: " + averageAcceleration.calc());
-        assertEquals(6, averageAcceleration.calc(), 0.0);
-    }  
+    public CalcAverageSpeed(final double distance, final double time) {
+        this.distance = distance;
+        this.time = time;
+    }
+
+    /**
+     * Calculates the average speed.
+     *
+     * @return Average speed.
+     */
+    @Override
+    public double calc() {
+        return this.distance / this.time;
+    }
 }

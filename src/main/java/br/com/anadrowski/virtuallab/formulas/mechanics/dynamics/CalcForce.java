@@ -29,39 +29,40 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas.mechanics;
+package br.com.anadrowski.virtuallab.formulas.mechanics.dynamics;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
 
 /**
- * Calculates the average speed.
+ * Calculates the Force (second Newton's law).
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcAverageSpeed implements Formula {
+public class CalcForce implements Formula {
 
-    private final double distance;
-    private final double time;
+    private final double mass;
+    private final double acceleration;
 
     /**
      * Constructor with parameters.
      *
-     * @param distance in meters
-     * @param time in seconds
+     * @param mass Mass in kg.
+     * @param acceleration Acceleration in m/s2
      */
-    public CalcAverageSpeed(final double distance, final double time) {
-        this.distance = distance;
-        this.time = time;
+    public CalcForce(final double mass, final double acceleration) {
+        this.mass = mass;
+        this.acceleration = acceleration;
     }
 
     /**
-     * Calculates the average speed.
+     * Calculates the force.
      *
-     * @return Average speed.
+     * @return Force.
      */
     @Override
     public double calc() {
-        return this.distance / this.time;
+        return this.mass * this.acceleration;
     }
+
 }

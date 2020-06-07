@@ -29,40 +29,27 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas.mechanics;
+package br.com.anadrowski.virtuallab.formulas.mechanics.kinematics;
 
+import br.com.anadrowski.virtuallab.formulas.mechanics.kinematics.CalcAverageSpeed;
 import br.com.anadrowski.virtuallab.formulas.Formula;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
- * Calculates the Force (second Newton's law).
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcForce implements Formula {
-
-    private final double mass;
-    private final double acceleration;
-
+public class CalcAverageSpeedTest {
+    
     /**
-     * Constructor with parameters.
-     *
-     * @param mass Mass in kg.
-     * @param acceleration Acceleration in m/s2
+     * Calculates the average speed.
      */
-    public CalcForce(final double mass, final double acceleration) {
-        this.mass = mass;
-        this.acceleration = acceleration;
+    @Test
+    public void shouldCalcAverageSpeed() {
+        Formula averageSpeed = new CalcAverageSpeed(30, 10);
+        System.out.println("Average Speed: " + averageSpeed.calc());
+        assertEquals(3, averageSpeed.calc(), 0.0);
     }
-
-    /**
-     * Calculates the force.
-     *
-     * @return Force.
-     */
-    @Override
-    public double calc() {
-        return this.mass * this.acceleration;
-    }
-
 }

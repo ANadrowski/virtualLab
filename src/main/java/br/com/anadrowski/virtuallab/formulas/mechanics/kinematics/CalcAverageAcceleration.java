@@ -29,26 +29,56 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package br.com.anadrowski.virtuallab.formulas.mechanics;
+package br.com.anadrowski.virtuallab.formulas.mechanics.kinematics;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
+ * Calculates the average acceleration.
+ *
+ * Aavg = vf - vi / tf - ti 
+ * 
+ * vf: final velocity 
+ * vi: initial velocity 
+ * tf: final time 
+ * ti: initial time
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcAverageSpeedTest {
-    
+public class CalcAverageAcceleration implements Formula {
+
+    private final double finalVelocity;
+    private final double initialVelocity;
+    private final double finalTime;
+    private final double initialTime;
+
     /**
-     * Calculates the average speed.
+     * Constructor with parameters.
+     *
+     * @param finalVelocity
+     * @param initialVelocity
+     * @param finalTime
+     * @param initialTime
      */
-    @Test
-    public void shouldCalcAverageSpeed() {
-        Formula averageSpeed = new CalcAverageSpeed(30, 10);
-        System.out.println("Average Speed: " + averageSpeed.calc());
-        assertEquals(3, averageSpeed.calc(), 0.0);
+    public CalcAverageAcceleration(final double finalVelocity,
+        final double initialVelocity,
+        final double finalTime,
+        final double initialTime) {
+
+        this.finalVelocity = finalVelocity;
+        this.initialVelocity = initialVelocity;
+        this.finalTime = finalTime;
+        this.initialTime = initialTime;
+    }
+
+    /**
+     * Calculates the average acceleration.
+     *
+     * @return Average acceleration (m/s2).
+     */
+    @Override
+    public double calc() {
+        return (this.finalVelocity - this.initialVelocity) / (this.finalTime - this.initialTime);
     }
 }
