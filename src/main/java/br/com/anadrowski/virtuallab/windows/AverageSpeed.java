@@ -33,16 +33,46 @@ package br.com.anadrowski.virtuallab.windows;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
- *
+ * Average Speed JPanel.
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class AverageSpeed extends JPanel {
+public final class AverageSpeed extends JPanel {
+    
+    private JLabel distanceJLabel;
+    private JLabel timeJLabel;
+    private JLabel resultJLabel;
+    private JTextField distanceJTextField;
+    private JTextField timeJTextField;
+    private JButton calculateJButton;
+    
     public AverageSpeed() {
+        configWindowDimensions();
+        configLayout();
+        initComponents();
+    }
+    
+    public void configWindowDimensions() {
         this.setPreferredSize(new Dimension(300,300));
         this.setBackground(Color.WHITE);
+    }
+    
+    public void configLayout() {
+        
+    }
+    
+    public void initComponents() {
+        this.distanceJLabel = new JLabel("Distance:");
+        this.timeJLabel = new JLabel("Time:");
+        this.resultJLabel = new JLabel();
+        this.distanceJTextField = new JTextField();
+        this.timeJTextField = new JTextField();
+        this.calculateJButton = new JButton("Calculate");
     }
 }

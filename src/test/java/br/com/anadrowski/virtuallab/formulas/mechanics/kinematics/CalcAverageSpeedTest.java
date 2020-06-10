@@ -31,7 +31,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package br.com.anadrowski.virtuallab.formulas.mechanics.kinematics;
 
-import br.com.anadrowski.virtuallab.formulas.mechanics.kinematics.CalcAverageSpeed;
 import br.com.anadrowski.virtuallab.formulas.Formula;
 import org.junit.Test;
 import static org.junit.Assert.*;
