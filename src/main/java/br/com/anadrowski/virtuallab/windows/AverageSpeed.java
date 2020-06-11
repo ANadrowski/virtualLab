@@ -64,8 +64,8 @@ public final class AverageSpeed extends JPanel {
     }
     
     public void configWindowDimensions() {
-        this.setPreferredSize(new Dimension(300, 300));
-        this.setBackground(Color.WHITE);
+        //this.setPreferredSize(new Dimension(300, 300));
+        //this.setBackground(Color.WHITE);
     }
     
     public void initComponents() {
@@ -87,5 +87,6 @@ public final class AverageSpeed extends JPanel {
         this.add(this.distanceJTextField, cc.xy(3, 1));
         this.add(this.timeJLabel, cc.xy(1, 3));
         this.add(this.timeJTextField, cc.xy(3, 3));
+        this.add(this.calculateJButton, cc.xy(3, 5));
     }
 }
