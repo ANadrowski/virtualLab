@@ -33,6 +33,9 @@ package br.com.anadrowski.virtuallab;
 
 import br.com.anadrowski.virtuallab.windows.AboutWindow;
 import br.com.anadrowski.virtuallab.windows.AverageSpeed;
+import com.github.weisj.darklaf.DarkLaf;
+import com.github.weisj.darklaf.LafManager;
+import com.github.weisj.darklaf.theme.DarculaTheme;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -103,11 +106,11 @@ public final class MainWindow extends JFrame {
         menuItem = new JMenuItem("Instantaneous Speed");
         submenu.add(menuItem);
         fileMenu.add(submenu);
-        
+
         menuItem = new JMenuItem("Average Acceleration");
         submenu.add(menuItem);
         fileMenu.add(submenu);
-        
+
         //Dynamics JMenuItems
         submenu = new JMenu("Dynamics");
         menuItem = new JMenuItem("Force");
@@ -125,19 +128,19 @@ public final class MainWindow extends JFrame {
         //Electrical menu.
         fileMenu = new JMenu("Electrical");
         jMenuBar.add(fileMenu);
-        
+
         //Electrostatic JMenuItems
         submenu = new JMenu("Electrostatic");
         menuItem = new JMenuItem("--");
         submenu.add(menuItem);
         fileMenu.add(submenu);
-        
+
         //Electrodynamics JMenuItems
         submenu = new JMenu("Electrodynamics");
         menuItem = new JMenuItem("--");
         submenu.add(menuItem);
         fileMenu.add(submenu);
-        
+
         //Electromagnetism JMenuItems
         submenu = new JMenu("Electromagnetism");
         menuItem = new JMenuItem("--");
@@ -161,7 +164,9 @@ public final class MainWindow extends JFrame {
 
     private static void lookAndFeelLoader() {
         try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            LafManager.setTheme(new DarculaTheme());
+            UIManager.setLookAndFeel(DarkLaf.class.getCanonicalName());
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
