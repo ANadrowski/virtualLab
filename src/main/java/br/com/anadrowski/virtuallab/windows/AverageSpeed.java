@@ -31,6 +31,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package br.com.anadrowski.virtuallab.windows;
 
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JButton;
@@ -40,6 +42,7 @@ import javax.swing.JTextField;
 
 /**
  * Average Speed JPanel.
+ *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
@@ -51,28 +54,38 @@ public final class AverageSpeed extends JPanel {
     private JTextField distanceJTextField;
     private JTextField timeJTextField;
     private JButton calculateJButton;
+    private FormLayout formLayout;
+    private CellConstraints cc;
     
     public AverageSpeed() {
         configWindowDimensions();
-        configLayout();
         initComponents();
+        addsComponents();
     }
     
     public void configWindowDimensions() {
-        this.setPreferredSize(new Dimension(300,300));
+        this.setPreferredSize(new Dimension(300, 300));
         this.setBackground(Color.WHITE);
     }
     
-    public void configLayout() {
-        
-    }
-    
     public void initComponents() {
+        this.cc = new CellConstraints();
+        this.formLayout = new FormLayout("right:40dlu, 5dlu, pref:grow, 5dlu, pref:grow",
+                "pref, 5dlu, pref, 5dlu, pref, 5dlu, pref");
+        this.setLayout(formLayout);
+        
         this.distanceJLabel = new JLabel("Distance:");
         this.timeJLabel = new JLabel("Time:");
         this.resultJLabel = new JLabel();
         this.distanceJTextField = new JTextField();
         this.timeJTextField = new JTextField();
         this.calculateJButton = new JButton("Calculate");
+    }
+    
+    public void addsComponents() {
+        this.add(this.distanceJLabel, cc.xy(1, 1));
+        this.add(this.distanceJTextField, cc.xy(3, 1));
+        this.add(this.timeJLabel, cc.xy(1, 3));
+        this.add(this.timeJTextField, cc.xy(3, 3));
     }
 }
