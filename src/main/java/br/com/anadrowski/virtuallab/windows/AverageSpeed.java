@@ -67,7 +67,6 @@ public final class AverageSpeed extends JPanel {
         this.cc = new CellConstraints();
         this.formLayout = new FormLayout("right:50dlu, 5dlu, pref:grow, 5dlu, pref:grow",
                 "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
-        //"pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref");
         this.setLayout(formLayout);
 
         this.distanceJLabel = new JLabel("Distance (m):");
@@ -77,6 +76,7 @@ public final class AverageSpeed extends JPanel {
         this.timeJTextField = new JTextField();
         this.calculateJButton = new JButton("Calculate");
         this.calculateJButton.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculateActionPerformed(evt);
             }
