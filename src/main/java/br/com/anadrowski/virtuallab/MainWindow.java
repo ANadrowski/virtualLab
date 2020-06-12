@@ -36,6 +36,10 @@ import br.com.anadrowski.virtuallab.windows.AverageSpeed;
 import com.github.weisj.darklaf.DarkLaf;
 import com.github.weisj.darklaf.LafManager;
 import com.github.weisj.darklaf.theme.DarculaTheme;
+import com.github.weisj.darklaf.theme.HighContrastLightTheme;
+import com.github.weisj.darklaf.theme.IntelliJTheme;
+import com.github.weisj.darklaf.theme.SolarizedDarkTheme;
+import com.github.weisj.darklaf.theme.ThemeDelegate;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -77,6 +81,7 @@ public final class MainWindow extends JFrame {
         //close JMenuItems
         menuItem = new JMenuItem("Close");
         menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeMenuItemActionPerformed(evt);
             }
@@ -97,6 +102,7 @@ public final class MainWindow extends JFrame {
 
         menuItem = new JMenuItem("Average Speed");
         menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 averageSpeedMenuItemActionPerformed(evt);
             }
@@ -153,6 +159,7 @@ public final class MainWindow extends JFrame {
 
         menuItem = new JMenuItem("About");
         menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutMenuItemActionPerformed(evt);
             }

@@ -31,10 +31,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package br.com.anadrowski.virtuallab.windows;
 
+import br.com.anadrowski.virtuallab.formulas.Formula;
+import br.com.anadrowski.virtuallab.formulas.mechanics.kinematics.CalcAverageSpeed;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -47,7 +48,7 @@ import javax.swing.JTextField;
  * @since 0.0.1
  */
 public final class AverageSpeed extends JPanel {
-    
+
     private JLabel distanceJLabel;
     private JLabel timeJLabel;
     private JLabel resultJLabel;
@@ -56,37 +57,43 @@ public final class AverageSpeed extends JPanel {
     private JButton calculateJButton;
     private FormLayout formLayout;
     private CellConstraints cc;
-    
+
     public AverageSpeed() {
-        configWindowDimensions();
         initComponents();
         addsComponents();
     }
-    
-    public void configWindowDimensions() {
-        //this.setPreferredSize(new Dimension(300, 300));
-        //this.setBackground(Color.WHITE);
-    }
-    
+
     public void initComponents() {
         this.cc = new CellConstraints();
-        this.formLayout = new FormLayout("right:40dlu, 5dlu, pref:grow, 5dlu, pref:grow",
-                "pref, 5dlu, pref, 5dlu, pref, 5dlu, pref");
+        this.formLayout = new FormLayout("right:50dlu, 5dlu, pref:grow, 5dlu, pref:grow",
+                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
+        //"pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref");
         this.setLayout(formLayout);
-        
-        this.distanceJLabel = new JLabel("Distance:");
-        this.timeJLabel = new JLabel("Time:");
-        this.resultJLabel = new JLabel();
+
+        this.distanceJLabel = new JLabel("Distance (m):");
+        this.timeJLabel = new JLabel("Time (s):");
+        this.resultJLabel = new JLabel("Insert the values and click on 'Calculate' button.");
         this.distanceJTextField = new JTextField();
         this.timeJTextField = new JTextField();
         this.calculateJButton = new JButton("Calculate");
+        this.calculateJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateActionPerformed(evt);
+            }
+
+            private void calculateActionPerformed(ActionEvent evt) {
+                Formula averageSpeed = new CalcAverageSpeed(Double.valueOf(distanceJTextField.getText()), Double.valueOf(timeJTextField.getText()));
+                resultJLabel.setText(String.valueOf("Result: " + averageSpeed.calc()) + "m/s");
+            }
+        });
     }
-    
+
     public void addsComponents() {
-        this.add(this.distanceJLabel, cc.xy(1, 1));
-        this.add(this.distanceJTextField, cc.xy(3, 1));
-        this.add(this.timeJLabel, cc.xy(1, 3));
-        this.add(this.timeJTextField, cc.xy(3, 3));
-        this.add(this.calculateJButton, cc.xy(3, 5));
+        this.add(this.distanceJLabel, cc.xy(1, 2));
+        this.add(this.distanceJTextField, cc.xy(3, 2));
+        this.add(this.timeJLabel, cc.xy(1, 4));
+        this.add(this.timeJTextField, cc.xy(3, 4));
+        this.add(this.calculateJButton, cc.xy(3, 6));
+        this.add(this.resultJLabel, cc.xy(3, 8));
     }
 }
