@@ -110,6 +110,12 @@ public final class MainWindow extends JFrame {
         submenu.add(menuItem);
 
         menuItem = new JMenuItem("Instantaneous Speed");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JOptionPane.showMessageDialog(null, "It does not work yet.");
+            }
+        });
         submenu.add(menuItem);
         fileMenu.add(submenu);
 
@@ -171,7 +177,29 @@ public final class MainWindow extends JFrame {
 
         //Electrodynamics JMenuItems
         submenu = new JMenu("Electrodynamics");
-        menuItem = new JMenuItem("--");
+        menuItem = new JMenuItem("Current");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                electricCurrentMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
+        menuItem = new JMenuItem("Resistance");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resistanceMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
+        menuItem = new JMenuItem("Voltage");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltageMenuItemActionPerformed(evt);
+            }
+        });
         submenu.add(menuItem);
         fileMenu.add(submenu);
 
@@ -241,6 +269,21 @@ public final class MainWindow extends JFrame {
     
     private void accelerationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.setContentPane(new Acceleration());
+        this.revalidate();
+    }
+    
+    private void electricCurrentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        //this.setContentPane(new ElectricCurrent());
+        this.revalidate();
+    }
+        
+    private void resistanceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        //this.setContentPane(new Resistance());
+        this.revalidate();
+    }
+            
+    private void voltageMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        //this.setContentPane(new Voltage());
         this.revalidate();
     }
 }
