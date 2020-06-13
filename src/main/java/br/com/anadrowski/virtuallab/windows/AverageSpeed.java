@@ -36,6 +36,7 @@ import br.com.anadrowski.virtuallab.formulas.mechanics.kinematics.CalcAverageSpe
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import java.awt.event.ActionEvent;
+import java.text.DecimalFormat;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -57,6 +58,7 @@ public final class AverageSpeed extends JPanel {
     private JButton calculateJButton;
     private FormLayout formLayout;
     private CellConstraints cc;
+    DecimalFormat decimalFormat;
 
     public AverageSpeed() {
         initComponents();
@@ -68,6 +70,7 @@ public final class AverageSpeed extends JPanel {
         this.formLayout = new FormLayout("right:50dlu, 5dlu, pref:grow, 5dlu, pref:grow",
                 "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
         this.setLayout(formLayout);
+        this.decimalFormat = new DecimalFormat("0.00");
 
         this.distanceJLabel = new JLabel("Distance (m):");
         this.timeJLabel = new JLabel("Time (s):");
@@ -83,9 +86,10 @@ public final class AverageSpeed extends JPanel {
 
             private void calculateActionPerformed(ActionEvent evt) {
                 Formula averageSpeed = new CalcAverageSpeed(Double.valueOf(distanceJTextField.getText()), Double.valueOf(timeJTextField.getText()));
-                resultJLabel.setText(String.valueOf("Result: " + averageSpeed.calc()) + "m/s");
+                resultJLabel.setText(String.valueOf("Result: " + decimalFormat.format(averageSpeed.calc())) + "m/s");
             }
         });
+        
     }
 
     public void addsComponents() {
