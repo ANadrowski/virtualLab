@@ -32,6 +32,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package br.com.anadrowski.virtuallab;
 
 import br.com.anadrowski.virtuallab.windows.AboutWindow;
+import br.com.anadrowski.virtuallab.windows.AverageAcceleration;
 import br.com.anadrowski.virtuallab.windows.AverageSpeed;
 import com.github.weisj.darklaf.DarkLaf;
 import com.github.weisj.darklaf.LafManager;
@@ -110,6 +111,12 @@ public final class MainWindow extends JFrame {
         fileMenu.add(submenu);
 
         menuItem = new JMenuItem("Average Acceleration");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                averageAccelerationMenuItemActionPerformed(evt);
+            }
+        });
         submenu.add(menuItem);
         fileMenu.add(submenu);
 
@@ -189,6 +196,11 @@ public final class MainWindow extends JFrame {
 
     private void averageSpeedMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.setContentPane(new AverageSpeed());
+        this.revalidate();
+    }
+    
+    private void averageAccelerationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new AverageAcceleration());
         this.revalidate();
     }
 }
