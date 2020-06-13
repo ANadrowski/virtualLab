@@ -34,6 +34,7 @@ package br.com.anadrowski.virtuallab;
 import br.com.anadrowski.virtuallab.windows.AboutWindow;
 import br.com.anadrowski.virtuallab.windows.AverageAcceleration;
 import br.com.anadrowski.virtuallab.windows.AverageSpeed;
+import br.com.anadrowski.virtuallab.windows.Force;
 import com.github.weisj.darklaf.DarkLaf;
 import com.github.weisj.darklaf.LafManager;
 import com.github.weisj.darklaf.theme.DarculaTheme;
@@ -123,6 +124,12 @@ public final class MainWindow extends JFrame {
         //Dynamics JMenuItems
         submenu = new JMenu("Dynamics");
         menuItem = new JMenuItem("Force");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forceMenuItemActionPerformed(evt);
+            }
+        });
         submenu.add(menuItem);
         fileMenu.add(submenu);
 
@@ -201,6 +208,11 @@ public final class MainWindow extends JFrame {
     
     private void averageAccelerationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.setContentPane(new AverageAcceleration());
+        this.revalidate();
+    }
+    
+    private void forceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new Force());
         this.revalidate();
     }
 }
