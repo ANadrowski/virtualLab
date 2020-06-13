@@ -40,16 +40,15 @@ import static org.junit.Assert.*;
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcForceTest {
+public class CalcMassTest {
 
     /**
-     * Calculates the force.
+     * Calculates the mass.
      */
     @Test
-    public void shouldCalcForce() {
-        Formula force = new CalcForce(4, 2);
-        System.out.println("Force: " + force.calc());
-        assertEquals(8, force.calc(), 0.0);
+    public void shouldCalcMass() {
+        Formula mass = new CalcMass(700, 10);
+        System.out.println("Mass: " + mass.calc());
+        assertEquals(70, mass.calc(), 0.0);
     }
-
 }

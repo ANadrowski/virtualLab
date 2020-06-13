@@ -32,7 +32,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package br.com.anadrowski.virtuallab.windows;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
-import br.com.anadrowski.virtuallab.formulas.mechanics.dynamics.CalcForce;
+import br.com.anadrowski.virtuallab.formulas.mechanics.dynamics.CalcMass;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import java.awt.event.ActionEvent;
@@ -43,24 +43,24 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * Force JPanel.
+ * Mass JPanel.
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public final class Force extends JPanel {
+public final class Mass extends JPanel {
 
-    private JLabel massJLabel;
+    private JLabel forceJLabel;
     private JLabel accelerationJLabel;
     private JLabel resultJLabel;
-    private JTextField massJTextField;
+    private JTextField forceJTextField;
     private JTextField accelerationJTextField;
     private JButton calculateJButton;
     private FormLayout formLayout;
     private CellConstraints cc;
     private DecimalFormat decimalFormat;
 
-    public Force() {
+    public Mass() {
         initComponents();
         addsComponents();
     }
@@ -72,10 +72,10 @@ public final class Force extends JPanel {
         this.setLayout(formLayout);
         this.decimalFormat = new DecimalFormat("0.00");
 
-        this.massJLabel = new JLabel("Mass (kg):");
+        this.forceJLabel = new JLabel("Force (N):");
         this.accelerationJLabel = new JLabel("Acceleration (m/s²):");
         this.resultJLabel = new JLabel("Insert the values and click on 'Calculate' button.");
-        this.massJTextField = new JTextField();
+        this.forceJTextField = new JTextField();
         this.accelerationJTextField = new JTextField();
         this.calculateJButton = new JButton("Calculate");
         this.calculateJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,16 +85,16 @@ public final class Force extends JPanel {
             }
 
             private void calculateActionPerformed(ActionEvent evt) {
-                Formula force = new CalcForce(Double.valueOf(massJTextField.getText()), Double.valueOf(accelerationJTextField.getText()));
-                resultJLabel.setText(String.valueOf("Result: " + decimalFormat.format(force.calc())) + "N");
+                Formula mass = new CalcMass(Double.valueOf(forceJTextField.getText()), Double.valueOf(accelerationJTextField.getText()));
+                resultJLabel.setText(String.valueOf("Result: " + decimalFormat.format(mass.calc())) + "kg");
             }
         });
         
     }
 
     public void addsComponents() {
-        this.add(this.massJLabel, cc.xy(1, 2));
-        this.add(this.massJTextField, cc.xy(3, 2));
+        this.add(this.forceJLabel, cc.xy(1, 2));
+        this.add(this.forceJTextField, cc.xy(3, 2));
         this.add(this.accelerationJLabel, cc.xy(1, 4));
         this.add(this.accelerationJTextField, cc.xy(3, 4));
         this.add(this.calculateJButton, cc.xy(3, 6));

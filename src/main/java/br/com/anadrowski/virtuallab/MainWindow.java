@@ -32,9 +32,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package br.com.anadrowski.virtuallab;
 
 import br.com.anadrowski.virtuallab.windows.AboutWindow;
+import br.com.anadrowski.virtuallab.windows.Acceleration;
 import br.com.anadrowski.virtuallab.windows.AverageAcceleration;
 import br.com.anadrowski.virtuallab.windows.AverageSpeed;
 import br.com.anadrowski.virtuallab.windows.Force;
+import br.com.anadrowski.virtuallab.windows.Mass;
 import com.github.weisj.darklaf.DarkLaf;
 import com.github.weisj.darklaf.LafManager;
 import com.github.weisj.darklaf.theme.DarculaTheme;
@@ -131,6 +133,22 @@ public final class MainWindow extends JFrame {
             }
         });
         submenu.add(menuItem);
+        menuItem = new JMenuItem("Mass");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                massMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
+        menuItem = new JMenuItem("Acceleration");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accelerationMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
         fileMenu.add(submenu);
 
         //Wave menu.
@@ -213,6 +231,16 @@ public final class MainWindow extends JFrame {
     
     private void forceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.setContentPane(new Force());
+        this.revalidate();
+    }
+    
+    private void massMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new Mass());
+        this.revalidate();
+    }
+    
+    private void accelerationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new Acceleration());
         this.revalidate();
     }
 }

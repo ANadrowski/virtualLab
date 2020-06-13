@@ -32,24 +32,36 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package br.com.anadrowski.virtuallab.formulas.mechanics.dynamics;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
+ * Calculates the Mass (second Newton's law).
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public class CalcForceTest {
+public class CalcMass implements Formula {
+
+    private final double force;
+    private final double acceleration;
 
     /**
-     * Calculates the force.
+     * Constructor with parameters.
+     *
+     * @param force force in N.
+     * @param acceleration Acceleration in m/s2
      */
-    @Test
-    public void shouldCalcForce() {
-        Formula force = new CalcForce(4, 2);
-        System.out.println("Force: " + force.calc());
-        assertEquals(8, force.calc(), 0.0);
+    public CalcMass(final double force, final double acceleration) {
+        this.force = force;
+        this.acceleration = acceleration;
     }
 
+    /**
+     * Calculates the mass.
+     *
+     * @return Mass.
+     */
+    @Override
+    public double calc() {
+        return this.force / this.acceleration;
+    }
 }
