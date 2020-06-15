@@ -33,6 +33,7 @@ package br.com.anadrowski.virtuallab.windows;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
 import br.com.anadrowski.virtuallab.formulas.mechanics.kinematics.CalcAverageAcceleration;
+import br.com.anadrowski.virtuallab.utils.ApplyRegex;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import java.awt.event.ActionEvent;
@@ -67,6 +68,7 @@ public final class AverageAcceleration extends JPanel {
     public AverageAcceleration() {
         initComponents();
         addsComponents();
+        applyRegex();
     }
 
     public void initComponents() {
@@ -115,5 +117,13 @@ public final class AverageAcceleration extends JPanel {
         
         this.add(this.calculateJButton, cc.xy(3, 10));
         this.add(this.resultJLabel, cc.xy(3, 12));
+    }
+    
+    public void applyRegex() {
+        ApplyRegex applyRegex = new ApplyRegex();
+        applyRegex.number(this.finalVelocityJTextField);
+        applyRegex.number((this.initialVelocityJTextField));
+        applyRegex.number(this.finalTimeJTextField);
+        applyRegex.number((this.initialTimeJTextField));
     }
 }

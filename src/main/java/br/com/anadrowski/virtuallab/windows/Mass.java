@@ -33,6 +33,7 @@ package br.com.anadrowski.virtuallab.windows;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
 import br.com.anadrowski.virtuallab.formulas.mechanics.dynamics.CalcMass;
+import br.com.anadrowski.virtuallab.utils.ApplyRegex;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import java.awt.event.ActionEvent;
@@ -63,6 +64,7 @@ public final class Mass extends JPanel {
     public Mass() {
         initComponents();
         addsComponents();
+        applyRegex();
     }
 
     public void initComponents() {
@@ -99,5 +101,11 @@ public final class Mass extends JPanel {
         this.add(this.accelerationJTextField, cc.xy(3, 4));
         this.add(this.calculateJButton, cc.xy(3, 6));
         this.add(this.resultJLabel, cc.xy(3, 8));
+    }
+    
+    public void applyRegex() {
+        ApplyRegex applyRegex = new ApplyRegex();
+        applyRegex.number(this.forceJTextField);
+        applyRegex.number((this.accelerationJTextField));
     }
 }

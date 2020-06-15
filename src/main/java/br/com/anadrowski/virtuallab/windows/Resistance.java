@@ -33,7 +33,7 @@ package br.com.anadrowski.virtuallab.windows;
 
 import br.com.anadrowski.virtuallab.formulas.Formula;
 import br.com.anadrowski.virtuallab.formulas.electrical.CalcResistance;
-import br.com.anadrowski.virtuallab.formulas.electrical.CalcVoltage;
+import br.com.anadrowski.virtuallab.utils.ApplyRegex;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 import java.awt.event.ActionEvent;
@@ -64,6 +64,7 @@ public final class Resistance extends JPanel {
     public Resistance() {
         initComponents();
         addsComponents();
+        applyRegex();
     }
 
     public void initComponents() {
@@ -100,5 +101,11 @@ public final class Resistance extends JPanel {
         this.add(this.currentJTextField, cc.xy(3, 4));
         this.add(this.calculateJButton, cc.xy(3, 6));
         this.add(this.resultJLabel, cc.xy(3, 8));
+    }
+    
+    public void applyRegex() {
+        ApplyRegex applyRegex = new ApplyRegex();
+        applyRegex.number(this.voltageJTextField);
+        applyRegex.number((this.currentJTextField));
     }
 }
