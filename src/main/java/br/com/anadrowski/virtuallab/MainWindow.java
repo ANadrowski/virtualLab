@@ -35,8 +35,11 @@ import br.com.anadrowski.virtuallab.windows.AboutWindow;
 import br.com.anadrowski.virtuallab.windows.Acceleration;
 import br.com.anadrowski.virtuallab.windows.AverageAcceleration;
 import br.com.anadrowski.virtuallab.windows.AverageSpeed;
+import br.com.anadrowski.virtuallab.windows.Current;
 import br.com.anadrowski.virtuallab.windows.Force;
 import br.com.anadrowski.virtuallab.windows.Mass;
+import br.com.anadrowski.virtuallab.windows.Resistance;
+import br.com.anadrowski.virtuallab.windows.Voltage;
 import com.github.weisj.darklaf.DarkLaf;
 import com.github.weisj.darklaf.LafManager;
 import com.github.weisj.darklaf.theme.DarculaTheme;
@@ -273,17 +276,17 @@ public final class MainWindow extends JFrame {
     }
     
     private void electricCurrentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        //this.setContentPane(new ElectricCurrent());
+        this.setContentPane(new Current());
         this.revalidate();
     }
         
     private void resistanceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        //this.setContentPane(new Resistance());
+        this.setContentPane(new Resistance());
         this.revalidate();
     }
             
     private void voltageMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        //this.setContentPane(new Voltage());
+        this.setContentPane(new Voltage());
         this.revalidate();
     }
 }
