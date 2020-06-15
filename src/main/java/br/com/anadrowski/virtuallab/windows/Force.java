@@ -106,6 +106,6 @@ public final class Force extends JPanel {
     public void applyRegex() {
         ApplyRegex applyRegex = new ApplyRegex();
         applyRegex.number(this.massJTextField);
-        applyRegex.number((this.accelerationJTextField));
+        applyRegex.number(this.accelerationJTextField);
     }
 }

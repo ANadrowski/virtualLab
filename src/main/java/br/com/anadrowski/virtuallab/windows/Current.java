@@ -106,6 +106,6 @@ public final class Current extends JPanel {
     public void applyRegex() {
         ApplyRegex applyRegex = new ApplyRegex();
         applyRegex.number(this.voltageJTextField);
-        applyRegex.number((this.resistanceJTextField));
+        applyRegex.number(this.resistanceJTextField);
     }
 }

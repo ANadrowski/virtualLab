@@ -106,6 +106,6 @@ public final class AverageSpeed extends JPanel {
     public void applyRegex() {
         ApplyRegex applyRegex = new ApplyRegex();
         applyRegex.number(this.distanceJTextField);
-        applyRegex.number((this.timeJTextField));
+        applyRegex.number(this.timeJTextField);
     }
 }

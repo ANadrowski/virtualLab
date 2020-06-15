@@ -106,6 +106,6 @@ public final class Acceleration extends JPanel {
     public void applyRegex() {
         ApplyRegex applyRegex = new ApplyRegex();
         applyRegex.number(this.forceJTextField);
-        applyRegex.number((this.massJTextField));
+        applyRegex.number(this.massJTextField);
     }
 }

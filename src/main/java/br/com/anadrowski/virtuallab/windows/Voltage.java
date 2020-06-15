@@ -106,6 +106,6 @@ public final class Voltage extends JPanel {
     public void applyRegex() {
         ApplyRegex applyRegex = new ApplyRegex();
         applyRegex.number(this.resistanceJTextField);
-        applyRegex.number((this.currentJTextField));
+        applyRegex.number(this.currentJTextField);
     }
 }

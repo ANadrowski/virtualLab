@@ -122,8 +122,8 @@ public final class AverageAcceleration extends JPanel {
     public void applyRegex() {
         ApplyRegex applyRegex = new ApplyRegex();
         applyRegex.number(this.finalVelocityJTextField);
-        applyRegex.number((this.initialVelocityJTextField));
+        applyRegex.number(this.initialVelocityJTextField);
         applyRegex.number(this.finalTimeJTextField);
-        applyRegex.number((this.initialTimeJTextField));
+        applyRegex.number(this.initialTimeJTextField);
     }
 }
