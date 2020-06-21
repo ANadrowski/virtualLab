@@ -36,6 +36,7 @@ import br.com.anadrowski.virtuallab.windows.Acceleration;
 import br.com.anadrowski.virtuallab.windows.AverageAcceleration;
 import br.com.anadrowski.virtuallab.windows.AverageSpeed;
 import br.com.anadrowski.virtuallab.windows.Current;
+import br.com.anadrowski.virtuallab.windows.FinalVelocity;
 import br.com.anadrowski.virtuallab.windows.Force;
 import br.com.anadrowski.virtuallab.windows.Mass;
 import br.com.anadrowski.virtuallab.windows.Resistance;
@@ -128,6 +129,16 @@ public final class MainWindow extends JFrame {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 averageAccelerationMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
+        
+        menuItem = new JMenuItem("Final Velocity");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalVelocityMenuItemActionPerformed(evt);
             }
         });
         submenu.add(menuItem);
@@ -267,6 +278,11 @@ public final class MainWindow extends JFrame {
     
     private void averageAccelerationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.setContentPane(new AverageAcceleration());
+        this.revalidate();
+    }
+    
+    private void finalVelocityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new FinalVelocity());
         this.revalidate();
     }
     
