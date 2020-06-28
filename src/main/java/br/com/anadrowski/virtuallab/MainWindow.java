@@ -39,6 +39,7 @@ import br.com.anadrowski.virtuallab.windows.Current;
 import br.com.anadrowski.virtuallab.windows.FinalVelocity;
 import br.com.anadrowski.virtuallab.windows.Force;
 import br.com.anadrowski.virtuallab.windows.Mass;
+import br.com.anadrowski.virtuallab.windows.Momentum;
 import br.com.anadrowski.virtuallab.windows.Resistance;
 import br.com.anadrowski.virtuallab.windows.Voltage;
 import br.com.anadrowski.virtuallab.windows.Work;
@@ -180,6 +181,15 @@ public final class MainWindow extends JFrame {
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
+        menuItem = new JMenuItem("Momentum");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                momentumMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
 
         //Wave menu.
         fileMenu = new JMenu("Wave");
@@ -306,6 +316,10 @@ public final class MainWindow extends JFrame {
         this.revalidate();
     }
     
+    private void momentumMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new Momentum());
+        this.revalidate();
+    }
     private void electricCurrentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.setContentPane(new Current());
         this.revalidate();
