@@ -242,6 +242,10 @@ public final class MainWindow extends JFrame {
         menuItem = new JMenuItem("--");
         submenu.add(menuItem);
         fileMenu.add(submenu);
+        
+        //Simulations menu.
+        fileMenu = new JMenu("Simulations");
+        jMenuBar.add(fileMenu);
 
         //Help menu.
         fileMenu = new JMenu("Help");
