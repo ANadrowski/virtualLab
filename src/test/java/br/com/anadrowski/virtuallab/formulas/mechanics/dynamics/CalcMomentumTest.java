@@ -42,13 +42,13 @@ import static org.junit.Assert.*;
  */
 public class CalcMomentumTest {
 
-  /**
-   * Calculates the momentum.
-   */
-  @Test
-  public void shouldCalcMomentum() {
-    Formula momentum = new CalcMomentum(2, 50);
-    System.out.println("Momentum: " + momentum.calc());
-    assertEquals(100, momentum.calc(), 0.0);
-  }
+    /**
+     * Calculates the momentum.
+     */
+    @Test
+    public void shouldCalcMomentum() {
+        Formula momentum = new CalcMomentum(2, 50);
+        System.out.println("Momentum: " + momentum.calc());
+        assertEquals(100, momentum.calc(), 0.0);
+    }
 }

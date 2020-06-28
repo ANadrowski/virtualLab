@@ -36,34 +36,32 @@ import br.com.anadrowski.virtuallab.formulas.Formula;
 /**
  * Calculates the momentum.
  *
- * @author Aislan Nadrowski
- * (aislan.nadrowski@gmail.com)
+ * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
 public class CalcMomentum implements Formula {
 
-  private final double mass;
-  private final double velocity;
+    private final double mass;
+    private final double velocity;
 
-  /**
-   * Constructor with parameters.
-   *
-   * @param mass in kg
-   * @param velocity in m/s
-   */
-  public CalcMomentum(final double mass, final double velocity) {
-    this.mass = mass;
-    this.velocity = velocity;
-  }
+    /**
+     * Constructor with parameters.
+     *
+     * @param mass in kg
+     * @param velocity in m/s
+     */
+    public CalcMomentum(final double mass, final double velocity) {
+        this.mass = mass;
+        this.velocity = velocity;
+    }
 
-  /**
-   * Calculates the momentum.
-   *
-   * @return Momentum in kilogram meters per second (kg.m/s).
-   */
-  @Override
-  public double calc() {
-    return this.mass * this.velocity;
-  }
-
+    /**
+     * Calculates the momentum.
+     *
+     * @return Momentum in kilogram meters per second (kg.m/s).
+     */
+    @Override
+    public double calc() {
+        return this.mass * this.velocity;
+    }
 }
