@@ -42,6 +42,7 @@ import br.com.anadrowski.virtuallab.windows.Mass;
 import br.com.anadrowski.virtuallab.windows.Momentum;
 import br.com.anadrowski.virtuallab.windows.Resistance;
 import br.com.anadrowski.virtuallab.windows.Voltage;
+import br.com.anadrowski.virtuallab.windows.Weight;
 import br.com.anadrowski.virtuallab.windows.Work;
 import com.github.weisj.darklaf.DarkLaf;
 import com.github.weisj.darklaf.LafManager;
@@ -190,7 +191,16 @@ public final class MainWindow extends JFrame {
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
-
+        menuItem = new JMenuItem("Weight");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weightMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
+        
         //Wave menu.
         fileMenu = new JMenu("Wave");
         jMenuBar.add(fileMenu);
@@ -324,6 +334,12 @@ public final class MainWindow extends JFrame {
         this.setContentPane(new Momentum());
         this.revalidate();
     }
+    
+    private void weightMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new Weight());
+        this.revalidate();
+    }
+        
     private void electricCurrentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.setContentPane(new Current());
         this.revalidate();
