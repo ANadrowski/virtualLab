@@ -48,7 +48,7 @@ public class UnitConverter {
     /**
      * Converts m/s to km/h.
      *
-     * @param metersSecond m/s;
+     * @param metersPerSecond m/s;
      * @return Km/h.
      */
     public double convertsMStoKmH(double metersPerSecond) {
