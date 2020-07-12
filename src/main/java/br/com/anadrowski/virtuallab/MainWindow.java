@@ -40,6 +40,7 @@ import br.com.anadrowski.virtuallab.windows.FinalVelocity;
 import br.com.anadrowski.virtuallab.windows.Force;
 import br.com.anadrowski.virtuallab.windows.Mass;
 import br.com.anadrowski.virtuallab.windows.Momentum;
+import br.com.anadrowski.virtuallab.windows.Power;
 import br.com.anadrowski.virtuallab.windows.Resistance;
 import br.com.anadrowski.virtuallab.windows.Voltage;
 import br.com.anadrowski.virtuallab.windows.Weight;
@@ -200,6 +201,15 @@ public final class MainWindow extends JFrame {
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
+        menuItem = new JMenuItem("Power");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                powerMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
+        fileMenu.add(submenu);
         
         //Wave menu.
         fileMenu = new JMenu("Wave");
@@ -337,6 +347,11 @@ public final class MainWindow extends JFrame {
     
     private void weightMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.setContentPane(new Weight());
+        this.revalidate();
+    }
+    
+    private void powerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new Power());
         this.revalidate();
     }
         
