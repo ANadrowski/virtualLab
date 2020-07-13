@@ -48,7 +48,7 @@ public class CalcPowerTest {
     @Test
     public void shouldCalcPower() {
         Formula power = new CalcPower(700, 10);
-        System.out.println("Mass: " + power.calc());
+        System.out.println("Power: " + power.calc());
         assertEquals(70, power.calc(), 0.0);
     }
 }
