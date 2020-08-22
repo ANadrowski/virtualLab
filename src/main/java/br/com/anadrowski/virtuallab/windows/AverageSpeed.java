@@ -62,7 +62,7 @@ public final class AverageSpeed extends JPanel {
     private JButton calculateJButton;
     private FormLayout formLayout;
     private CellConstraints cc;
-    DecimalFormat decimalFormat;
+    private DecimalFormat decimalFormat;
     private Font font;
 
     public AverageSpeed() {
