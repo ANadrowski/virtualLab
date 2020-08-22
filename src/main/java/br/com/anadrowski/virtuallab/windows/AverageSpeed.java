@@ -81,9 +81,6 @@ public final class AverageSpeed extends JPanel {
         this.titleJLabel = new JLabel("Average Speed");
         this.titleJLabel.setFont(font);
         this.distanceJLabel = new JLabel("Distance (m):");
-        
-        System.out.println("nome da fonte: " + this.distanceJLabel.getFont().getName());
-        
         this.timeJLabel = new JLabel("Time (s):");
         this.resultJLabel = new JLabel("Insert the values and click on 'Calculate' button.");
         this.distanceJTextField = new JTextField();
