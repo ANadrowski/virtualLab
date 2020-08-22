@@ -36,6 +36,7 @@ import br.com.anadrowski.virtuallab.formulas.mechanics.kinematics.CalcAverageSpe
 import br.com.anadrowski.virtuallab.utils.ApplyRegex;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
@@ -51,6 +52,7 @@ import javax.swing.JTextField;
  */
 public final class AverageSpeed extends JPanel {
 
+    private JLabel titleJLabel;
     private JLabel distanceJLabel;
     private JLabel timeJLabel;
     private JLabel resultJLabel;
@@ -60,6 +62,7 @@ public final class AverageSpeed extends JPanel {
     private FormLayout formLayout;
     private CellConstraints cc;
     DecimalFormat decimalFormat;
+    private Font font;
 
     public AverageSpeed() {
         initComponents();
@@ -70,11 +73,17 @@ public final class AverageSpeed extends JPanel {
     public void initComponents() {
         this.cc = new CellConstraints();
         this.formLayout = new FormLayout("right:50dlu, 5dlu, pref:grow, 5dlu, pref:grow",
-                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
+                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
         this.setLayout(formLayout);
         this.decimalFormat = new DecimalFormat("0.00");
 
+        this.font = new Font("Dialog", 1, 12);
+        this.titleJLabel = new JLabel("Average Speed");
+        this.titleJLabel.setFont(font);
         this.distanceJLabel = new JLabel("Distance (m):");
+        
+        System.out.println("nome da fonte: " + this.distanceJLabel.getFont().getName());
+        
         this.timeJLabel = new JLabel("Time (s):");
         this.resultJLabel = new JLabel("Insert the values and click on 'Calculate' button.");
         this.distanceJTextField = new JTextField();
@@ -95,12 +104,13 @@ public final class AverageSpeed extends JPanel {
     }
 
     public void addsComponents() {
-        this.add(this.distanceJLabel, cc.xy(1, 2));
-        this.add(this.distanceJTextField, cc.xy(3, 2));
-        this.add(this.timeJLabel, cc.xy(1, 4));
-        this.add(this.timeJTextField, cc.xy(3, 4));
-        this.add(this.calculateJButton, cc.xy(3, 6));
-        this.add(this.resultJLabel, cc.xy(3, 8));
+        this.add(this.titleJLabel, cc.xy(3, 2));
+        this.add(this.distanceJLabel, cc.xy(1, 4));
+        this.add(this.distanceJTextField, cc.xy(3, 4));
+        this.add(this.timeJLabel, cc.xy(1, 6));
+        this.add(this.timeJTextField, cc.xy(3, 6));
+        this.add(this.calculateJButton, cc.xy(3, 8));
+        this.add(this.resultJLabel, cc.xy(3, 10));
     }
     
     public void applyRegex() {
