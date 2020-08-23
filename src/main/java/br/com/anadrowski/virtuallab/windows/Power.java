@@ -36,6 +36,7 @@ import br.com.anadrowski.virtuallab.formulas.mechanics.dynamics.CalcPower;
 import br.com.anadrowski.virtuallab.utils.ApplyRegex;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
@@ -51,6 +52,8 @@ import javax.swing.JTextField;
  */
 public final class Power extends JPanel {
 
+    private JLabel titleJLabel;
+    private JLabel formulaJLabel;
     private JLabel workJLabel;
     private JLabel timeJLabel;
     private JLabel resultJLabel;
@@ -60,6 +63,8 @@ public final class Power extends JPanel {
     private FormLayout formLayout;
     private CellConstraints cc;
     private DecimalFormat decimalFormat;
+    private Font font;
+
 
     public Power() {
         initComponents();
@@ -70,10 +75,16 @@ public final class Power extends JPanel {
     public void initComponents() {
         this.cc = new CellConstraints();
         this.formLayout = new FormLayout("right:70dlu, 5dlu, pref:grow, 5dlu, pref:grow",
-                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
+                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
         this.setLayout(formLayout);
         this.decimalFormat = new DecimalFormat("0.00");
 
+        this.font = new Font("Dialog", 1, 12);
+        this.titleJLabel = new JLabel("Power");
+        this.titleJLabel.setFont(font);
+        this.font = new Font("Dialog", 0, 12);
+        this.formulaJLabel = new JLabel("power = work / time");
+        this.formulaJLabel.setFont(font);
         this.workJLabel = new JLabel("Work (J):");
         this.timeJLabel = new JLabel("Time (s):");
         this.resultJLabel = new JLabel("Insert the values and click on 'Calculate' button.");
@@ -95,12 +106,14 @@ public final class Power extends JPanel {
     }
 
     public void addsComponents() {
-        this.add(this.workJLabel, cc.xy(1, 2));
-        this.add(this.workJTextField, cc.xy(3, 2));
-        this.add(this.timeJLabel, cc.xy(1, 4));
-        this.add(this.timeJTextField, cc.xy(3, 4));
-        this.add(this.calculateJButton, cc.xy(3, 6));
-        this.add(this.resultJLabel, cc.xy(3, 8));
+        this.add(this.titleJLabel, cc.xy(3, 2));
+        this.add(this.formulaJLabel, cc.xy(3, 4));
+        this.add(this.workJLabel, cc.xy(1, 6));
+        this.add(this.workJTextField, cc.xy(3, 6));
+        this.add(this.timeJLabel, cc.xy(1, 8));
+        this.add(this.timeJTextField, cc.xy(3, 8));
+        this.add(this.calculateJButton, cc.xy(3, 10));
+        this.add(this.resultJLabel, cc.xy(3, 12));
     }
     
     public void applyRegex() {

@@ -36,6 +36,7 @@ import br.com.anadrowski.virtuallab.formulas.mechanics.dynamics.CalcWork;
 import br.com.anadrowski.virtuallab.utils.ApplyRegex;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
@@ -51,6 +52,8 @@ import javax.swing.JTextField;
  */
 public final class Work extends JPanel {
 
+    private JLabel titleJLabel;
+    private JLabel formulaJLabel;
     private JLabel forceJLabel;
     private JLabel displacementJLabel;
     private JLabel resultJLabel;
@@ -60,6 +63,7 @@ public final class Work extends JPanel {
     private FormLayout formLayout;
     private CellConstraints cc;
     private DecimalFormat decimalFormat;
+    private Font font;
 
     public Work() {
         initComponents();
@@ -70,10 +74,16 @@ public final class Work extends JPanel {
     public void initComponents() {
         this.cc = new CellConstraints();
         this.formLayout = new FormLayout("right:70dlu, 5dlu, pref:grow, 5dlu, pref:grow",
-                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
+                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
         this.setLayout(formLayout);
         this.decimalFormat = new DecimalFormat("0.00");
 
+        this.font = new Font("Dialog", 1, 12);
+        this.titleJLabel = new JLabel("Work");
+        this.titleJLabel.setFont(font);
+        this.font = new Font("Dialog", 0, 12);
+        this.formulaJLabel = new JLabel("work = force * displacement");
+        this.formulaJLabel.setFont(font);
         this.forceJLabel = new JLabel("Force (N):");
         this.displacementJLabel = new JLabel("Displacement (m):");
         this.resultJLabel = new JLabel("Insert the values and click on 'Calculate' button.");
@@ -95,12 +105,14 @@ public final class Work extends JPanel {
     }
  
     public void addsComponents() {
-        this.add(this.forceJLabel, cc.xy(1, 2));
-        this.add(this.forceJTextField, cc.xy(3, 2));
-        this.add(this.displacementJLabel, cc.xy(1, 4));
-        this.add(this.displacementJTextField, cc.xy(3, 4));
-        this.add(this.calculateJButton, cc.xy(3, 6));
-        this.add(this.resultJLabel, cc.xy(3, 8));
+        this.add(this.titleJLabel, cc.xy(3, 2));
+        this.add(this.formulaJLabel, cc.xy(3, 4));
+        this.add(this.forceJLabel, cc.xy(1, 6));
+        this.add(this.forceJTextField, cc.xy(3, 6));
+        this.add(this.displacementJLabel, cc.xy(1, 8));
+        this.add(this.displacementJTextField, cc.xy(3, 8));
+        this.add(this.calculateJButton, cc.xy(3, 10));
+        this.add(this.resultJLabel, cc.xy(3, 12));
     }
     
     public void applyRegex() {

@@ -36,6 +36,7 @@ import br.com.anadrowski.virtuallab.formulas.mechanics.dynamics.CalcWeight;
 import br.com.anadrowski.virtuallab.utils.ApplyRegex;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
@@ -51,6 +52,8 @@ import javax.swing.JTextField;
  */
 public final class Weight extends JPanel {
 
+    private JLabel titleJLabel;
+    private JLabel formulaJLabel;
     private JLabel massJLabel;
     private JLabel accelerationJLabel;
     private JLabel resultJLabel;
@@ -60,6 +63,7 @@ public final class Weight extends JPanel {
     private FormLayout formLayout;
     private CellConstraints cc;
     private DecimalFormat decimalFormat;
+    private Font font;
 
     public Weight() {
         initComponents();
@@ -70,10 +74,16 @@ public final class Weight extends JPanel {
     public void initComponents() {
         this.cc = new CellConstraints();
         this.formLayout = new FormLayout("right:70dlu, 5dlu, pref:grow, 5dlu, pref:grow",
-                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
+                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
         this.setLayout(formLayout);
         this.decimalFormat = new DecimalFormat("0.00");
 
+        this.font = new Font("Dialog", 1, 12);
+        this.titleJLabel = new JLabel("Weight");
+        this.titleJLabel.setFont(font);
+        this.font = new Font("Dialog", 0, 12);
+        this.formulaJLabel = new JLabel("weight = mass * acceleration");
+        this.formulaJLabel.setFont(font);
         this.massJLabel = new JLabel("Mass (kg):");
         this.accelerationJLabel = new JLabel("Acceleration (m/s²):");
         this.resultJLabel = new JLabel("Insert the values and click on 'Calculate' button.");
@@ -95,12 +105,14 @@ public final class Weight extends JPanel {
     }
 
     public void addsComponents() {
-        this.add(this.massJLabel, cc.xy(1, 2));
-        this.add(this.massJTextField, cc.xy(3, 2));
-        this.add(this.accelerationJLabel, cc.xy(1, 4));
-        this.add(this.accelerationJTextField, cc.xy(3, 4));
-        this.add(this.calculateJButton, cc.xy(3, 6));
-        this.add(this.resultJLabel, cc.xy(3, 8));
+        this.add(this.titleJLabel, cc.xy(3, 2));
+        this.add(this.formulaJLabel, cc.xy(3, 4));
+        this.add(this.massJLabel, cc.xy(1, 6));
+        this.add(this.massJTextField, cc.xy(3, 6));
+        this.add(this.accelerationJLabel, cc.xy(1, 8));
+        this.add(this.accelerationJTextField, cc.xy(3, 8));
+        this.add(this.calculateJButton, cc.xy(3, 10));
+        this.add(this.resultJLabel, cc.xy(3, 12));
     }
     
     public void applyRegex() {

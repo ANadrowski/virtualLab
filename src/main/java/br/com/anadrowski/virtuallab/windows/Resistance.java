@@ -36,6 +36,7 @@ import br.com.anadrowski.virtuallab.formulas.electrical.CalcResistance;
 import br.com.anadrowski.virtuallab.utils.ApplyRegex;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
@@ -51,6 +52,8 @@ import javax.swing.JTextField;
  */
 public final class Resistance extends JPanel {
 
+    private JLabel titleJLabel;
+    private JLabel formulaJLabel;
     private JLabel voltageJLabel;
     private JLabel currentJLabel;
     private JLabel resultJLabel;
@@ -60,6 +63,7 @@ public final class Resistance extends JPanel {
     private FormLayout formLayout;
     private CellConstraints cc;
     private DecimalFormat decimalFormat;
+    private Font font;
 
     public Resistance() {
         initComponents();
@@ -70,10 +74,16 @@ public final class Resistance extends JPanel {
     public void initComponents() {
         this.cc = new CellConstraints();
         this.formLayout = new FormLayout("right:70dlu, 5dlu, pref:grow, 5dlu, pref:grow",
-                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
+                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
         this.setLayout(formLayout);
         this.decimalFormat = new DecimalFormat("0.00");
-
+        
+        this.font = new Font("Dialog", 1, 12);
+        this.titleJLabel = new JLabel("Resistance");
+        this.titleJLabel.setFont(font);
+        this.font = new Font("Dialog", 0, 12);
+        this.formulaJLabel = new JLabel("resistance = voltage / current");
+        this.formulaJLabel.setFont(font);
         this.voltageJLabel = new JLabel("Voltage (V):");
         this.currentJLabel = new JLabel("Current (A):");
         this.resultJLabel = new JLabel("Insert the values and click on 'Calculate' button.");
@@ -95,12 +105,14 @@ public final class Resistance extends JPanel {
     }
 
     public void addsComponents() {
-        this.add(this.voltageJLabel, cc.xy(1, 2));
-        this.add(this.voltageJTextField, cc.xy(3, 2));
-        this.add(this.currentJLabel, cc.xy(1, 4));
-        this.add(this.currentJTextField, cc.xy(3, 4));
-        this.add(this.calculateJButton, cc.xy(3, 6));
-        this.add(this.resultJLabel, cc.xy(3, 8));
+        this.add(this.titleJLabel, cc.xy(3, 2));
+        this.add(this.formulaJLabel, cc.xy(3, 4));
+        this.add(this.voltageJLabel, cc.xy(1, 6));
+        this.add(this.voltageJTextField, cc.xy(3, 6));
+        this.add(this.currentJLabel, cc.xy(1, 8));
+        this.add(this.currentJTextField, cc.xy(3, 8));
+        this.add(this.calculateJButton, cc.xy(3, 10));
+        this.add(this.resultJLabel, cc.xy(3, 12));
     }
     
     public void applyRegex() {
