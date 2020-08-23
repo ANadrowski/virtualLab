@@ -36,6 +36,7 @@ import br.com.anadrowski.virtuallab.formulas.mechanics.kinematics.motion.CalcFin
 import br.com.anadrowski.virtuallab.utils.ApplyRegex;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import javax.swing.JButton;
@@ -51,6 +52,8 @@ import javax.swing.JTextField;
  */
 public final class FinalVelocity extends JPanel {
     
+    private JLabel titleJLabel;
+    private JLabel formulaJLabel;
     private JLabel initialVelocityJLabel;
     private JLabel accelerationJLabel;
     private JLabel timeJLabel;
@@ -62,6 +65,7 @@ public final class FinalVelocity extends JPanel {
     private FormLayout formLayout;
     private CellConstraints cc;
     DecimalFormat decimalFormat;
+    private Font font;
 
     public FinalVelocity() {
         initComponents();
@@ -72,10 +76,16 @@ public final class FinalVelocity extends JPanel {
     public void initComponents() {
         this.cc = new CellConstraints();
         this.formLayout = new FormLayout("right:80dlu, 5dlu, pref:grow, 5dlu, pref:grow",
-                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
+                "5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu, pref, 5dlu");
         this.setLayout(formLayout);
         this.decimalFormat = new DecimalFormat("0.00");
 
+        this.font = new Font("Dialog", 1, 12);
+        this.titleJLabel = new JLabel("Final Velocity");
+        this.titleJLabel.setFont(font);
+        this.font = new Font("Dialog", 0, 12);
+        this.formulaJLabel = new JLabel("final velocity = initial velocity + (acceleration * time)");
+        this.formulaJLabel.setFont(font);
         this.initialVelocityJLabel = new JLabel("Initial velocity: (m/s):");
         this.accelerationJLabel = new JLabel("Acceleration (m/s²):");
         this.timeJLabel = new JLabel("Time (s):");
@@ -99,17 +109,20 @@ public final class FinalVelocity extends JPanel {
     }
 
     public void addsComponents() {
-        this.add(this.initialVelocityJLabel, cc.xy(1, 2));
-        this.add(this.initialVelocityJTextField, cc.xy(3, 2));
+        this.add(this.titleJLabel, cc.xy(3, 2));
+        this.add(this.formulaJLabel, cc.xy(3, 4));
+        
+        this.add(this.initialVelocityJLabel, cc.xy(1, 6));
+        this.add(this.initialVelocityJTextField, cc.xy(3, 6));
 
-        this.add(this.accelerationJLabel, cc.xy(1, 4));
-        this.add(this.accelerationJTextField, cc.xy(3, 4));
+        this.add(this.accelerationJLabel, cc.xy(1, 8));
+        this.add(this.accelerationJTextField, cc.xy(3, 8));
         
-        this.add(this.timeJLabel, cc.xy(1, 6));
-        this.add(this.timeJTextField, cc.xy(3, 6));
+        this.add(this.timeJLabel, cc.xy(1, 10));
+        this.add(this.timeJTextField, cc.xy(3, 10));
         
-        this.add(this.calculateJButton, cc.xy(3, 8));
-        this.add(this.resultJLabel, cc.xy(3, 10));
+        this.add(this.calculateJButton, cc.xy(3, 12));
+        this.add(this.resultJLabel, cc.xy(3, 14));
     }
     
     public void applyRegex() {
