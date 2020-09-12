@@ -48,6 +48,9 @@ import br.com.anadrowski.virtuallab.windows.Work;
 import com.github.weisj.darklaf.DarkLaf;
 import com.github.weisj.darklaf.LafManager;
 import com.github.weisj.darklaf.theme.DarculaTheme;
+import com.github.weisj.darklaf.theme.IntelliJTheme;
+import com.github.weisj.darklaf.theme.SolarizedDarkTheme;
+import com.github.weisj.darklaf.theme.SolarizedLightTheme;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -287,6 +290,9 @@ public final class MainWindow extends JFrame {
         try {
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             LafManager.setTheme(new DarculaTheme());
+            //LafManager.setTheme(new IntelliJTheme());
+            //LafManager.setTheme(new SolarizedDarkTheme());
+            //LafManager.setTheme(new SolarizedLightTheme());
             UIManager.setLookAndFeel(DarkLaf.class.getCanonicalName());
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
