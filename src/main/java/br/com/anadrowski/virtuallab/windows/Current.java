@@ -78,10 +78,10 @@ public final class Current extends JPanel {
         this.setLayout(formLayout);
         this.decimalFormat = new DecimalFormat("0.00");
 
-        this.font = new Font("Dialog", 1, 12);
+        this.font = new Font("Segoe UI", 1, 12);
         this.titleJLabel = new JLabel("Current");
         this.titleJLabel.setFont(font);
-        this.font = new Font("Dialog", 0, 12);
+        this.font = new Font("Segoe UI", 0, 12);
         this.formulaJLabel = new JLabel("current = voltage / resistance");
         this.formulaJLabel.setFont(font);
         this.voltageJLabel = new JLabel("Voltage (V):");

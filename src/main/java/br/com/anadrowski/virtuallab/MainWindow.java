@@ -45,13 +45,9 @@ import br.com.anadrowski.virtuallab.windows.Resistance;
 import br.com.anadrowski.virtuallab.windows.Voltage;
 import br.com.anadrowski.virtuallab.windows.Weight;
 import br.com.anadrowski.virtuallab.windows.Work;
-import com.github.weisj.darklaf.DarkLaf;
-import com.github.weisj.darklaf.LafManager;
-import com.github.weisj.darklaf.theme.DarculaTheme;
-import com.github.weisj.darklaf.theme.IntelliJTheme;
-import com.github.weisj.darklaf.theme.SolarizedDarkTheme;
-import com.github.weisj.darklaf.theme.SolarizedLightTheme;
+import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Dimension;
+import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -288,12 +284,8 @@ public final class MainWindow extends JFrame {
 
     private static void lookAndFeelLoader() {
         try {
-            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            LafManager.setTheme(new DarculaTheme());
-            //LafManager.setTheme(new IntelliJTheme());
-            //LafManager.setTheme(new SolarizedDarkTheme());
-            //LafManager.setTheme(new SolarizedLightTheme());
-            UIManager.setLookAndFeel(DarkLaf.class.getCanonicalName());
+        UIManager.setLookAndFeel(new FlatLightLaf());
+        UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Segoe UI", Font.PLAIN, 12));
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
