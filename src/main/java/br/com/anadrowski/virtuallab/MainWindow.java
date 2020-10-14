@@ -36,6 +36,7 @@ import br.com.anadrowski.virtuallab.windows.Acceleration;
 import br.com.anadrowski.virtuallab.windows.AverageAcceleration;
 import br.com.anadrowski.virtuallab.windows.AverageSpeed;
 import br.com.anadrowski.virtuallab.windows.Current;
+import br.com.anadrowski.virtuallab.windows.ElectricPower;
 import br.com.anadrowski.virtuallab.windows.FinalVelocity;
 import br.com.anadrowski.virtuallab.windows.Force;
 import br.com.anadrowski.virtuallab.windows.Mass;
@@ -254,6 +255,14 @@ public final class MainWindow extends JFrame {
             }
         });
         submenu.add(menuItem);
+        menuItem = new JMenuItem("Electric Power");
+        menuItem.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                electricPowerMenuItemActionPerformed(evt);
+            }
+        });
+        submenu.add(menuItem);
         fileMenu.add(submenu);
 
         //Electromagnetism JMenuItems
@@ -365,6 +374,11 @@ public final class MainWindow extends JFrame {
             
     private void voltageMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         this.setContentPane(new Voltage());
+        this.revalidate();
+    }
+    
+    private void electricPowerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setContentPane(new ElectricPower());
         this.revalidate();
     }
 }
