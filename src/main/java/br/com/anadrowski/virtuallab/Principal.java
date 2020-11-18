@@ -31,13 +31,25 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package br.com.anadrowski.virtuallab;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
 public class Principal {
-  public static void main(String args[]) {
-    MainWindow window = new MainWindow();
-  }
+
+    public static void main(String args[]) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                createGUI();
+            }
+        });
+    }
+
+    public static void createGUI() {
+        MainWindow window = new MainWindow();
+    }
 }
