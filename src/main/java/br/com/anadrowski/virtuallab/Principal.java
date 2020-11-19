@@ -50,6 +50,6 @@ public class Principal {
     }
 
     public static void createGUI() {
-        MainWindow window = new MainWindow();
+        new MainWindow();
     }
 }
