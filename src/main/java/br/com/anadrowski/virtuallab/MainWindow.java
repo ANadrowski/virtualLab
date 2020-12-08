@@ -54,6 +54,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 /**
@@ -61,14 +62,19 @@ import javax.swing.UIManager;
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public final class MainWindow extends JFrame {
+public final class MainWindow extends JFrame implements Runnable {
 
-    public MainWindow() {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new MainWindow());
+    }
+    
+    @Override
+    public void run() {
         lookAndFeelLoader();
         menu();
         init();
     }
-
+ 
     public void init() {
         this.setVisible(true);
         this.setTitle("VirtualLab");

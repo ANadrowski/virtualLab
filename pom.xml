@@ -83,7 +83,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>br.com.anadrowski.virtuallab.Principal</mainClass>
+                            <mainClass>br.com.anadrowski.virtuallab.MainWindow</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
