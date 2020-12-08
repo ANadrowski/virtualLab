@@ -47,8 +47,8 @@ import br.com.anadrowski.virtuallab.windows.Voltage;
 import br.com.anadrowski.virtuallab.windows.Weight;
 import br.com.anadrowski.virtuallab.windows.Work;
 import com.formdev.flatlaf.FlatLightLaf;
-import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -56,13 +56,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import java.awt.event.ActionEvent;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
  * @author Aislan Nadrowski (aislan.nadrowski@gmail.com)
  * @since 0.0.1
  */
-public final class MainWindow extends JFrame implements Runnable {
+public final class MainWindow implements Runnable {
+    
+    private JFrame jFrame;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new MainWindow());
@@ -71,16 +75,16 @@ public final class MainWindow extends JFrame implements Runnable {
     @Override
     public void run() {
         lookAndFeelLoader();
-        menu();
         init();
     }
  
     public void init() {
-        this.setVisible(true);
-        this.setTitle("VirtualLab");
-        this.setSize(new Dimension(800, 600));
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.jFrame = new JFrame();
+        this.jFrame.setTitle("VirtualLab");
+        this.jFrame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        this.jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        menu();
+        this.jFrame.setVisible(true);
     }
 
     public void menu() {
@@ -94,11 +98,8 @@ public final class MainWindow extends JFrame implements Runnable {
 
         //close JMenuItems
         menuItem = new JMenuItem("Close");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((java.awt.event.ActionEvent evt) -> {
+            closeMenuItemActionPerformed(evt);
         });
 
         fileMenu.add(menuItem);
@@ -115,40 +116,28 @@ public final class MainWindow extends JFrame implements Runnable {
         submenu = new JMenu("Kinematics");
 
         menuItem = new JMenuItem("Average Speed");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                averageSpeedMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            averageSpeedMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
 
         menuItem = new JMenuItem("Instantaneous Speed");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JOptionPane.showMessageDialog(null, "It does not work yet.");
-            }
+        menuItem.addActionListener((evt) -> {
+            JOptionPane.showMessageDialog(null, "It does not work yet.");
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
 
         menuItem = new JMenuItem("Average Acceleration");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                averageAccelerationMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            averageAccelerationMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
         
         menuItem = new JMenuItem("Final Velocity");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finalVelocityMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            finalVelocityMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
@@ -156,63 +145,42 @@ public final class MainWindow extends JFrame implements Runnable {
         //Dynamics JMenuItems
         submenu = new JMenu("Dynamics");
         menuItem = new JMenuItem("Force");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                forceMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            forceMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         menuItem = new JMenuItem("Mass");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                massMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            massMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         menuItem = new JMenuItem("Acceleration");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accelerationMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            accelerationMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
         menuItem = new JMenuItem("Work");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                workMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            workMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
         menuItem = new JMenuItem("Momentum");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                momentumMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            momentumMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
         menuItem = new JMenuItem("Weight");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                weightMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            weightMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
         menuItem = new JMenuItem("Power");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                powerMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            powerMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
@@ -238,35 +206,23 @@ public final class MainWindow extends JFrame implements Runnable {
         //Electrodynamics JMenuItems
         submenu = new JMenu("Electrodynamics");
         menuItem = new JMenuItem("Current");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                electricCurrentMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            electricCurrentMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         menuItem = new JMenuItem("Resistance");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resistanceMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            resistanceMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         menuItem = new JMenuItem("Voltage");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltageMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            voltageMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         menuItem = new JMenuItem("Electric Power");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                electricPowerMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            electricPowerMenuItemActionPerformed(evt);
         });
         submenu.add(menuItem);
         fileMenu.add(submenu);
@@ -286,27 +242,24 @@ public final class MainWindow extends JFrame implements Runnable {
         jMenuBar.add(fileMenu);
 
         menuItem = new JMenuItem("About");
-        menuItem.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aboutMenuItemActionPerformed(evt);
-            }
+        menuItem.addActionListener((evt) -> {
+            aboutMenuItemActionPerformed(evt);
         });
         fileMenu.add(menuItem);
 
-        this.setJMenuBar(jMenuBar);
+        this.jFrame.setJMenuBar(jMenuBar);
     }
 
     private static void lookAndFeelLoader() {
         try {
         UIManager.setLookAndFeel(new FlatLightLaf());
         UIManager.getLookAndFeelDefaults().put("defaultFont", new Font("Segoe UI", Font.PLAIN, 12));
-        } catch (Exception ex) {
+        } catch (UnsupportedLookAndFeelException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    private void closeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+    private void closeMenuItemActionPerformed(ActionEvent evt) {
         int dialogResult = JOptionPane.showConfirmDialog(null, "Do you really want to close it?", "Close the software", JOptionPane.YES_OPTION);
 
         if (dialogResult == 0) {
@@ -314,77 +267,77 @@ public final class MainWindow extends JFrame implements Runnable {
         }
     }
 
-    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+    private void aboutMenuItemActionPerformed(ActionEvent evt) {
         AboutWindow about = new AboutWindow();
     }
 
-    private void averageSpeedMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new AverageSpeed());
-        this.revalidate();
+    private void averageSpeedMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new AverageSpeed());
+        this.jFrame.revalidate();
     }
     
-    private void averageAccelerationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new AverageAcceleration());
-        this.revalidate();
+    private void averageAccelerationMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new AverageAcceleration());
+        this.jFrame.revalidate();
     }
     
-    private void finalVelocityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new FinalVelocity());
-        this.revalidate();
+    private void finalVelocityMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new FinalVelocity());
+        this.jFrame.revalidate();
     }
     
-    private void forceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Force());
-        this.revalidate();
+    private void forceMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Force());
+        this.jFrame.revalidate();
     }
     
-    private void massMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Mass());
-        this.revalidate();
+    private void massMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Mass());
+        this.jFrame.revalidate();
     }
     
-    private void accelerationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Acceleration());
-        this.revalidate();
+    private void accelerationMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Acceleration());
+        this.jFrame.revalidate();
     }
     
-    private void workMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Work());
-        this.revalidate();
+    private void workMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Work());
+        this.jFrame.revalidate();
     }
     
-    private void momentumMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Momentum());
-        this.revalidate();
+    private void momentumMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Momentum());
+        this.jFrame.revalidate();
     }
     
-    private void weightMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Weight());
-        this.revalidate();
+    private void weightMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Weight());
+        this.jFrame.revalidate();
     }
     
-    private void powerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Power());
-        this.revalidate();
+    private void powerMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Power());
+        this.jFrame.revalidate();
     }
         
-    private void electricCurrentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Current());
-        this.revalidate();
+    private void electricCurrentMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Current());
+        this.jFrame.revalidate();
     }
         
-    private void resistanceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Resistance());
-        this.revalidate();
+    private void resistanceMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Resistance());
+        this.jFrame.revalidate();
     }
             
-    private void voltageMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new Voltage());
-        this.revalidate();
+    private void voltageMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new Voltage());
+        this.jFrame.revalidate();
     }
     
-    private void electricPowerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setContentPane(new ElectricPower());
-        this.revalidate();
+    private void electricPowerMenuItemActionPerformed(ActionEvent evt) {
+        this.jFrame.setContentPane(new ElectricPower());
+        this.jFrame.revalidate();
     }
 }
